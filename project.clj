@@ -6,9 +6,10 @@
 
                  ;; Web app / routing
                  [ring/ring-defaults "0.2.1"]
-                 [metosin/reitit-ring "0.1.0"]]
+                 [metosin/reitit "0.1.2"]]
   :plugins [[lein-ring "0.9.7"]]
-  :ring {:handler captain-ahab-bike-test.handler/app}
+  :ring {:handler captain-ahab-bike-test.handler/app
+         :adapter {:port 8085}}
   :profiles
   {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
                         [ring/ring-mock "0.3.0"]]}})

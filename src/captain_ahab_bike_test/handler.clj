@@ -1,22 +1,19 @@
 (ns captain-ahab-bike-test.handler
-  (:require [ring.middleware.defaults :refer [wrap-defaults site-defaults]]
-            [reitit.ring :as ring]))
-
-(defn handler [_]
-  {:status 200, :body "ok"})
-
-(defn wrap [handler id]
-  (fn [request]
-    (update (handler request) :via (fnil conj '()) id)))
+  (:require [reitit.ring :as ring]
+            [reitit.coercion.spec]
+            [reitit.ring.coercion :as rrc]))
 
 (def app
   (ring/ring-handler
     (ring/router
-      ["/api" {:middleware [#(wrap % :api)]}
-       ["/ping" handler]
-       ["/admin" {:middleware [[wrap :admin]]}
-        ["/db" {:middleware [[wrap :db]]
-                :delete {:middleware [[wrap :delete]]
-                         :handler handler}}]]]
-      {:data {:middleware [[wrap :top]]}}) ;; all routes
-    (ring/create-default-handler)))
+      ["/api"
+       ["/math" {:get {:parameters {:query {:x int?, :y int?}}
+                       :responses {200 {:body {:total pos-int?}}}
+                       :handler (fn [{{{:keys [x y]} :query} :parameters}]
+                                  {:status 200
+                                   :body {:total (+ x y)}})}}]]
+      ;; router data effecting all routes
+      {:data {:coercion reitit.coercion.spec/coercion
+              :middleware [rrc/coerce-exceptions-middleware
+                           rrc/coerce-request-middleware
+                           rrc/coerce-response-middleware]}})))
