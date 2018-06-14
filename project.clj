@@ -2,10 +2,11 @@
   :description "FIXME: write description"
   :url "http://example.com/FIXME"
   :min-lein-version "2.0.0"
-  :dependencies [[org.clojure/clojure "1.8.0"]
+  :dependencies [[org.clojure/clojure "1.9.0"]
 
                  ;; Web app / routing
-                 [ring/ring-defaults "0.2.1"]
+                 [ring "1.6.3"]
+                 [metosin/muuntaja "0.4.1"]
                  [metosin/reitit "0.1.2"]]
   :plugins [[lein-ring "0.9.7"]]
   :ring {:handler captain-ahab-bike-test.handler/app
