@@ -1,33 +1,33 @@
 [{:bike_station_name "Green Street, Mayfair"
-  :id
+  :id "BikePoints_138"
   :distance 1}
  {:bike_station_name "Park Lane , Hyde Park"
-  :id
+  :id "BikePoints_111"
   :distance 2}
  {:bike_station_name "Upper Grosvenor Street, Mayfair"
-  :id
+  :id "BikePoints_389"
   :distance 3}
  {:bike_station_name "Portman Square, Marylebone"
-  :id
+  :id "BikePoints_514"
   :distance 4}
  {:bike_station_name "George Place Mews, Marylebone"
-  :id
+  :id "BikePoints_403"
   :distance 5}
  {:bike_station_name "Porchester Place, Paddington"
-  :id
+  :id "BikePoints_169"
   :distance 6}
  {:bike_station_name "Park Lane , Hyde Park"
-  :id
+  :id "BikePoints_111"
   :distance 7}
  {:bike_station_name "Millennium Hotel, Mayfair"
-  :id
+  :id "BikePoints_366"
   :distance 8}
  {:bike_station_name "Grosvenor Square, Mayfair"
-  :id
+  :id "BikePoints_348"
   :distance 9}
  {:bike_station_name "Nutford Place, Marylebone"
-  :id
+  :id "BikePoints_188"
   :distance 10}
  {:bike_station_name "Hinde Street, Marylebone"
-  :id
+  :id "BikePoints_210"
   :distance 11}]
