@@ -1,5 +1,6 @@
 (ns captain-ahab-bike-test.datalayer
-  (:require [clj-http.client :as client]))
+  (:require [clj-http.client :as client]
+            [cheshire.core :as json]))
 
 
 (def app_id "86abb5ba")
@@ -8,5 +9,9 @@
 (defn pull-bike-list
   []
   (prn "Getting bike data from bikepoint . . .")
-  (client/get (str "https://api.tfl.gov.uk/bikepoint?app_id="app_id"&app_key="app_key)))
+  (let [response (client/get (str "https://api.tfl.gov.uk/bikepoint?app_id="app_id"&app_key="app_key))]
+    (if (= (:status response) 200)
+      (json/parse-string (:body (client/get (str "https://api.tfl.gov.uk/bikepoint?app_id="app_id"&app_key="app_key))))
+      ;; Need to throw error here
+      )))
 

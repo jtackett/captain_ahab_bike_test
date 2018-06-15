@@ -11,6 +11,9 @@
 
                  ;; External HTTP requests
                  [clj-http "3.9.0"]
+
+                 ;; JSON
+                 [cheshire "5.8.0"]
                  ]
   :plugins [[lein-ring "0.9.7"]]
   :ring {:handler captain-ahab-bike-test.handler/app
