@@ -5,14 +5,13 @@
             [captain-ahab-bike-test.bike :as bike]))
 
 ;; wrap into Spec Records to enable runtime conforming
-;(s/def ::x spec/int?)
-;(s/def ::y spec/int?)
+(s/def ::bikes spec/int?)
 (s/def ::name spec/string?)
 
 (def routes
   ["/api" {:coercion reitit.coercion.spec/coercion}
    ["/stations" {:name ::plus
-                 :responses {200 {:body (s/keys :req-un [::name])}}
+                 :responses {200 {:body (s/coll-of (s/keys :req-un [::name ::bikes]))}}
                  :get {:handler (fn [{{{:keys []} :query} :parameters}]
                                   {:status 200
                                    :body (bike/get-bike-stations-and-bikes)})}}]])

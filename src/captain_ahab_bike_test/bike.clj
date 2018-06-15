@@ -17,7 +17,8 @@
         relevant-bike-data (filter #(relevant-bike-ids (get % "id")) all-bike-stations)
         result-bike-data (mapv #(identity
                                   {:name (get % "commonName")
-                                   :bikes (get-bike-count (get % "additionalProperties"))})
+                                   :bikes (when-let [bike-count(get-bike-count (get % "additionalProperties"))]
+                                            (read-string bike-count))})
                                relevant-bike-data)]
 
     ;(prn relevant-bike-stations)
