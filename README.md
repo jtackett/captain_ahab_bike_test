@@ -16,7 +16,10 @@ To start a web server for the application, run:
     (require '[captain-ahab-bike-test.server :as server])
     (server/restart)
 
-## Bike API
+## API's available
+    http://localhost:3000/api/stations
+
+## External Bike API
     https://api-portal.tfl.gov.uk
     creds
       joshtackett7@gmail.com
@@ -24,7 +27,7 @@ To start a web server for the application, run:
       App ID 86abb5ba
       App Key 025de1f94d5f964d31a7163c0f7c3b2c
 
-  #Endpoints
+  # External Endpoints
     Endpoint: https://api.tfl.gov.uk/bikepoint
 
     Endpoint Docs: https://api.tfl.gov.uk/swagger/ui/index.html?url=/swagger/docs/v1#!/BikePoint/BikePoint_GetAll

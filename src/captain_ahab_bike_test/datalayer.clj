@@ -7,4 +7,6 @@
 
 (defn pull-bike-list
   []
-  (client/get "https://push-api-argon.tfl.gov.uk:8001/BikePoint?app_id="app_id"&app_key="app_key))
+  (prn "Getting bike data from bikepoint . . .")
+  (client/get (str "https://api.tfl.gov.uk/bikepoint?app_id="app_id"&app_key="app_key)))
+

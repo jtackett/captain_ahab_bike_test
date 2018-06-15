@@ -9,7 +9,9 @@
 
 (defn get-bike-stations-and-bikes
   []
+  (prn "Starting get bike logic . . .")
   (let [all-bike-stations (data/pull-bike-list)
+        _ (prn all-bike-stations)
         relevant-bike-stations (slurp "/resources/bike_station_list.edn")
         relevant-bike-ids (set (map :id relevant-bike-stations))
         relevant-bike-data (filter #(relevant-bike-ids (get % "id")) all-bike-stations)
