@@ -13,8 +13,7 @@
   ["/api" {:coercion reitit.coercion.spec/coercion}
    ["/stations" {:name ::plus
                  :responses {200 {:body (s/keys :req-un [::name])}}
-                 :get {:summary "plus with query-params"
-                       :handler (fn [{{{:keys []} :query} :parameters}]
+                 :get {:handler (fn [{{{:keys []} :query} :parameters}]
                                   {:status 200
                                    :body (bike/get-bike-stations-and-bikes)})}}]])
 
