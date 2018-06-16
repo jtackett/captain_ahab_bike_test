@@ -17,14 +17,12 @@
    ["/stations" {:name ::stations
                  :responses {200 {:body (s/coll-of (s/keys :req-un [::name ::bikes]))}}
                  :get {:handler (fn [{{{:keys []} :query} :parameters}]
-                                  {:status 200
-                                   :body (bike/get-bike-stations-and-bikes)})}}]
+                                  (bike/get-bike-stations-and-bikes))}}]
    ["/closestBike"
     {:name ::closestBike
      :responses {200 {:body (s/keys :req-un [::name ::bikes])}}
      :get {:handler (fn [{{{:keys []} :query} :parameters}]
-                      {:status 200
-                       :body (bike/get-closest-bike-station-with-bikes)})}}]])
+                      (bike/get-closest-bike-station-with-bikes))}}]])
 
 
 ;; List all stations

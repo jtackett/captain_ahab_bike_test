@@ -16,11 +16,9 @@
                  [cheshire "5.8.0"]
 
                  ;; Basic Auth Middleware
-                 [ring-basic-authentication "1.0.5"]
-                 ]
+                 [ring-basic-authentication "1.0.5"]]
   :plugins [[lein-ring "0.9.7"]]
-  :ring {:handler captain-ahab-bike-test.handler/app
-         :adapter {:port 8085}}
+  :ring {:handler captain-ahab-bike-test.handler/app}
   :aot :all
   :profiles
   {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
