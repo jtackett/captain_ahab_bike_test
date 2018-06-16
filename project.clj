@@ -14,6 +14,9 @@
 
                  ;; JSON
                  [cheshire "5.8.0"]
+
+                 ;; Basic Auth Middleware
+                 [ring-basic-authentication "1.0.5"]
                  ]
   :plugins [[lein-ring "0.9.7"]]
   :ring {:handler captain-ahab-bike-test.handler/app

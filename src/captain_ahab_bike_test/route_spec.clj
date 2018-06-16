@@ -1,8 +1,12 @@
 (ns captain-ahab-bike-test.route-spec
-  (:require [clojure.spec.alpha :as s]
-            [spec-tools.spec :as spec]
-            [reitit.coercion.spec]
-            [captain-ahab-bike-test.bike :as bike]))
+  (:require
+    ;; validation
+    [clojure.spec.alpha :as s]
+    [spec-tools.spec :as spec]
+    ;; logic
+    [captain-ahab-bike-test.bike :as bike]
+    ;; ring and routing
+    [reitit.coercion.spec]))
 
 ;; wrap into Spec Records to enable runtime conforming
 (s/def ::bikes spec/int?)
@@ -20,8 +24,7 @@
      :responses {200 {:body (s/keys :req-un [::name ::bikes])}}
      :get {:handler (fn [{{{:keys []} :query} :parameters}]
                       {:status 200
-                       :body (bike/get-closest-bike-station-with-bikes)})}}
-    ]])
+                       :body (bike/get-closest-bike-station-with-bikes)})}}]])
 
 
 ;; List all stations
@@ -36,3 +39,4 @@
 ;       :handler (fn [{{{:keys [x y]} :body} :parameters}]
 ;                  {:status 200
 ;                   :body {:name (+ x y)}})}
+

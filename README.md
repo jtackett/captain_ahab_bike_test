@@ -17,11 +17,15 @@ To start a web server for the application, run:
     (server/restart)
 
 ## API's available
+    API's use basic auth
+      username: foo
+      password: bar
+
     Endpoint to list stations need Marble Arch and their available bikes email said 5 but I did 10 to make next endpoint more stable
-    http://localhost:3000/api/stations
+    http://foo:bar@localhost:3000/api/stations
 
     Endpoint to show the closest station with an available bike
-    http://localhost:3000/api/closestBike
+    http://foo:bar@localhost:3000/api/closestBike
 
 ## External Bike API
     https://api-portal.tfl.gov.uk
