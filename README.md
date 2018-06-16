@@ -17,7 +17,11 @@ To start a web server for the application, run:
     (server/restart)
 
 ## API's available
+    Endpoint to list stations need Marble Arch and their available bikes email said 5 but I did 10 to make next endpoint more stable
     http://localhost:3000/api/stations
+
+    Endpoint to show the closest station with an available bike
+    http://localhost:3000/api/closestBike
 
 ## External Bike API
     https://api-portal.tfl.gov.uk

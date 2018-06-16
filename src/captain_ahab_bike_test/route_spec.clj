@@ -10,11 +10,18 @@
 
 (def routes
   ["/api" {:coercion reitit.coercion.spec/coercion}
-   ["/stations" {:name ::plus
+   ["/stations" {:name ::stations
                  :responses {200 {:body (s/coll-of (s/keys :req-un [::name ::bikes]))}}
                  :get {:handler (fn [{{{:keys []} :query} :parameters}]
                                   {:status 200
-                                   :body (bike/get-bike-stations-and-bikes)})}}]])
+                                   :body (bike/get-bike-stations-and-bikes)})}}]
+   ["/closestBike"
+    {:name ::closestBike
+     :responses {200 {:body (s/keys :req-un [::name ::bikes])}}
+     :get {:handler (fn [{{{:keys []} :query} :parameters}]
+                      {:status 200
+                       :body (bike/get-closest-bike-station-with-bikes)})}}
+    ]])
 
 
 ;; List all stations
@@ -23,7 +30,7 @@
 ;; Closest station with empty docks to put my bike
 
 
-;; Post example
+;; Post example for addition
 ;:post {:summary "plus with body-params"
 ;       :parameters {:body (s/keys :req-un [::x ::y])}
 ;       :handler (fn [{{{:keys [x y]} :body} :parameters}]
