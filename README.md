@@ -1,7 +1,5 @@
 # captain_ahab_bike_test
 
-FIXME
-
 ## Prerequisites
 
 You will need [Leiningen][] 2.0.0 or above installed.
@@ -126,5 +124,5 @@ To start a web server for the application, run:
 
 ## License
 
-Copyright © 2018 FIXME
+Copyright © 2018
 # captain_ahab_bike_test
