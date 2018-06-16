@@ -11,7 +11,7 @@
   (prn "Getting bike data from bikepoint . . .")
   (let [response (client/get (str "https://api.tfl.gov.uk/bikepoint?app_id="app_id"&app_key="app_key))]
     (if (= (:status response) 200)
-      (json/parse-string (:body (client/get (str "https://api.tfl.gov.uk/bikepoint?app_id="app_id"&app_key="app_key))))
+      (json/parse-string (:body response))
       false ;; returning false to show the external API failed
       )))
 
